@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#2874f0" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>BharatMultiHub | 12,000+ Products Super App – Shop, Rent, CAD & Cloud Vault</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- QRious QR Code Generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap');
+    :root {
+      --fk-blue: #2874f0;
+      --fk-yellow: #ffe500;
+      --fk-orange: #fb641b;
+    }
+    * { -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f1f3f6;
+      color: #1f2937;
+      padding-bottom: 74px;
+    }
+    body.dark-mode {
+      background-color: #0b0f19;
+      color: #f1f5f9;
+    }
+    body.dark-mode .app-card {
+      background-color: #1e293b !important;
+      border-color: #334155 !important;
+      color: #f1f5f9 !important;
+    }
+    body.dark-mode .bottom-nav {
+      background-color: #0f172a !important;
+      border-color: #1e293b !important;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-2px); }
+    }
+    .logo-3d { animation: floatLogo 3s ease-in-out infinite; }
+
+    @keyframes pulseHeart {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #f43f5e); }
+      50% { transform: scale(1.22); filter: drop-shadow(0 0 10px #fb7185); }
+    }
+    .heart-glow {
+      animation: pulseHeart 1.8s infinite ease-in-out;
+      display: inline-block;
+    }
+
+    .blueprint-grid {
+      background-color: #0a192f;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.14) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ========================================================= -->
+  <!-- STICKY FLIPKART-STYLE SUPER APP HEADER                    -->
+  <!-- ========================================================= -->
+  <header id="appHeader" class="sticky top-0 z-40 shadow-md transition-colors" style="background-color: var(--fk-blue);">
+    <!-- Top Utility Bar -->
+    <div class="bg-black/25 text-white text-[11px] px-3 py-1 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center gap-1 bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full font-black text-[10px]">
+          <i class="fa-solid fa-layer-group"></i> <span id="topTotalCatalogBadge">12,000+</span> Products Live
+        </span>
+        <span class="hidden sm:inline-flex items-center gap-1 text-emerald-300 font-semibold text-[10px]">
+          <i class="fa-solid fa-check-double"></i> 1,200+ Items in Every Category
+        </span>
+        <span class="hidden md:inline-flex items-center gap-1 text-cyan-200 font-semibold text-[10px]">
+          <i class="fa-solid fa-database"></i> Vault: <strong id="topVaultStatus">∞ GB Free</strong>
+        </span>
+      </div>
+
+      <div class="flex items-center gap-1.5 ml-auto">
+        <!-- Currency Switcher -->
+        <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-white/15 text-white rounded px-1.5 py-0.5 text-[10px] font-bold focus:outline-none cursor-pointer">
+          <option value="INR" class="text-slate-900">₹ INR</option>
+          <option value="USD" class="text-slate-900">$ USD</option>
+          <option value="SAR" class="text-slate-900">﷼ SAR</option>
+          <option value="AED" class="text-slate-900">د.إ AED</option>
+          <option value="EUR" class="text-slate-900">€ EUR</option>
+        </select>
+
+        <!-- Multi-Language Switcher -->
+        <select id="langSelector" onchange="changeLanguage(this.value)" class="bg-white/15 text-white rounded px-1.5 py-0.5 text-[10px] font-bold focus:outline-none cursor-pointer">
+          <option value="en" class="text-slate-900">English</option>
+          <option value="hi" class="text-slate-900">हिंदी</option>
+          <option value="or" class="text-slate-900">ଓଡ଼ିଆ</option>
+          <option value="gu" class="text-slate-900">ગુજરાતી</option>
+          <option value="pa" class="text-slate-900">ਪੰਜਾਬੀ</option>
+        </select>
+
+        <!-- Dark Mode Button -->
+        <button onclick="toggleDarkMode()" class="bg-white/15 p-1 px-2 rounded hover:bg-white/25 text-[10px] font-bold" title="Toggle Dark Mode">
+          <i id="darkModeIcon" class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Quick Top Admin Access -->
+        <button onclick="openAdminModal()" class="bg-amber-400/20 border border-amber-300/50 text-amber-200 px-2 py-0.5 rounded text-[10px] font-bold hover:bg-amber-400/30">
+          <i class="fa-solid fa-lock"></i> Admin
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Brand & Action Bar -->
+    <div class="max-w-7xl mx-auto px-3 py-2.5 flex items-center justify-between gap-3">
+      <!-- 3D SVG Brand Logo + Clean Company Name -->
+      <div onclick="resetToAllCatalog()" class="flex items-center gap-2.5 cursor-pointer shrink-0">
+        <div class="logo-3d w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 via-orange-500 to-pink-600 p-0.5 shadow-lg flex items-center justify-center">
+          <svg viewBox="0 0 64 64" class="w-full h-full">
+            <defs>
+              <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0f172a" />
+                <stop offset="100%" stop-color="#1e3a8a" />
+              </linearGradient>
+            </defs>
+            <polygon points="32,4 58,18 58,46 32,60 6,46 6,18" fill="url(#hexGrad)" stroke="#fde047" stroke-width="2.5" />
+            <ellipse cx="32" cy="32" rx="20" ry="9" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,2" transform="rotate(-25 32 32)" />
+            <path d="M22,26 L42,26 L40,46 C40,48 38,49 36,49 L28,49 C26,49 24,48 24,46 Z" fill="#facc15" />
+            <path d="M26,26 C26,20 38,20 38,26" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+            <polygon points="33,29 27,38 32,38 30,46 38,36 33,36" fill="#0f172a" />
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span id="brandTitleText" class="text-white font-black text-base sm:text-xl tracking-tight leading-none italic">BharatMultiHub</span>
+            <span class="bg-amber-400 text-slate-950 text-[9px] font-black px-1.5 py-0.5 rounded uppercase hidden sm:inline">PLUS</span>
+          </div>
+          <p id="brandSubText" class="text-[10px] text-amber-200 font-semibold tracking-wide">12,000+ Mega Store • Rentals • CAD</p>
+        </div>
+      </div>
+
+      <!-- Desktop Wide Search Bar (Searches all 12,000+ items instantly) -->
+      <div class="flex-1 max-w-2xl hidden md:flex items-center bg-white rounded-lg shadow-inner overflow-hidden">
+        <select id="desktopCatSelect" onchange="selectCategory(this.value)" class="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-2.5 border-r border-slate-200 focus:outline-none">
+          <option value="All">All 10 Categories (12,000+)</option>
+          <option value="Sarees">👗 Sarees & Ethnic (1,200+)</option>
+          <option value="Fashion">👔 Fashion & Apparel (1,200+)</option>
+          <option value="Toys">🧸 Kids Toys & Games (1,200+)</option>
+          <option value="Electronics">📱 Electronics & Gadgets (1,200+)</option>
+          <option value="Books">📚 Books & eBooks (1,200+)</option>
+          <option value="Home">🏠 Home & Kitchen (1,200+)</option>
+          <option value="Stationery">✏️ Stationery & Office (1,200+)</option>
+          <option value="Industrial">⚙️ Industrial & Tools (1,200+)</option>
+          <option value="Movies">🎬 Movies & Courses Rent (1,200+)</option>
+          <option value="CAD">📐 Engineering CAD & Code (1,200+)</option>
+        </select>
+        <input
+          id="desktopSearchInput"
+          type="text"
+          oninput="handleSearchInput(this.value)"
+          placeholder="Search across 12,000+ items: Banarasi Saree, RC Truck, 5G Phone, AutoCAD DWG, SKU..."
+          class="w-full py-2 px-3 text-xs sm:text-sm text-slate-800 focus:outline-none"
+        />
+        <button onclick="startVoiceSearch()" class="px-3 py-2 text-rose-600 hover:bg-rose-50 transition" title="Voice Search">
+          <i class="fa-solid fa-microphone"></i>
+        </button>
+        <button onclick="handleSearchInput(document.getElementById('desktopSearchInput').value)" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-4 py-2.5 text-xs">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <!-- Right Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button onclick="openPaymentModal(100, 'Quick Merchant Pay')" class="hidden sm:inline-flex items-center gap-1 bg-purple-700 hover:bg-purple-800 text-white text-xs font-bold px-3 py-2 rounded-xl border border-purple-400/30 shadow">
+          <i class="fa-solid fa-qrcode text-amber-300"></i> Pay MKR
+        </button>
+        <button onclick="openWishlistModal()" class="text-white bg-white/15 hover:bg-white/25 p-2 rounded-xl relative" title="Wishlist">
+          <i class="fa-solid fa-heart text-sm text-rose-300"></i>
+          <span id="wishlistBadge" class="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+        <button onclick="openCartModal()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-3 py-2 rounded-xl flex items-center gap-1.5 shadow-sm text-xs">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cartCountBadge">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div class="px-3 pb-2.5 md:hidden">
+      <div class="flex items-center bg-white rounded-xl shadow-inner overflow-hidden">
+        <i class="fa-solid fa-magnifying-glass text-slate-400 pl-3 text-xs"></i>
+        <input
+          id="mobileSearchInput"
+          type="text"
+          oninput="handleSearchInput(this.value)"
+          placeholder="Search 12,000+ products, Sarees, Toys, CAD, Movies..."
+          class="w-full py-2 px-2.5 text-xs text-slate-800 focus:outline-none"
+        />
+        <button onclick="startVoiceSearch()" class="px-3 py-1.5 text-rose-600">
+          <i class="fa-solid fa-microphone text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- MAIN WORKSPACE                                            -->
+  <!-- ========================================================= -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-2.5 sm:px-4 pt-3 space-y-4">
+
+    <!-- 10-CATEGORY VISUAL MEGA DIRECTORY BAR (1,200+ IN EACH CATEGORY) -->
+    <section class="app-card bg-white rounded-2xl p-3 shadow-sm border border-slate-200/80">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-black uppercase tracking-wider text-blue-600">
+            <i class="fa-solid fa-table-cells-large mr-1"></i> Shop & Rent By Category
+          </span>
+          <span class="bg-blue-50 text-blue-700 text-[10px] font-extrabold px-2 py-0.5 rounded-full border border-blue-200">
+            10 Categories × 1,200+ = 12,000+ Items
+          </span>
+        </div>
+        <button onclick="resetToAllCatalog()" class="text-[11px] font-bold text-blue-600 hover:underline">
+          View All 12,000+ Items →
+        </button>
+      </div>
+
+      <div id="categoryVisualBar" class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-10 gap-2">
+        <!-- Populated dynamically with live counts (1,200+ each) -->
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- TAB VIEW 1: MEGA STORE & CATALOG (12,000+ PRODUCTS)       -->
+    <!-- ========================================================= -->
+    <div id="tabView-store" class="space-y-4">
+
+      <!-- Promotional Hero Banner with Flash Sale Countdown -->
+      <div class="rounded-2xl bg-gradient-to-r from-blue-700 via-indigo-800 to-slate-900 text-white p-4 sm:p-5 shadow-md flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div class="space-y-1 max-w-2xl">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+              BIG BILLION SUPER CATALOG
+            </span>
+            <span class="bg-white/15 text-amber-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+              1,200+ Products in Every Category
+            </span>
+          </div>
+          <h1 id="heroBannerHeading" class="text-lg sm:text-2xl font-black leading-tight">
+            Explore 12,000+ Sarees, Fashion, Kids Toys, Electronics, Industrial Tools, Movies & CAD Blueprints
+          </h1>
+          <p class="text-xs text-blue-100">
+            Official UPI Checkout (<strong class="text-amber-300" id="heroPayeeText">MKR</strong> • <span class="font-mono" id="heroUpiText">9060196522-2@ybl</span>) • All Indian Banks, Cards & EMI Supported
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <div class="bg-black/35 border border-white/15 rounded-xl px-3.5 py-2 text-center">
+            <div class="text-[10px] uppercase text-amber-300 font-bold">Flash Sale Ends In</div>
+            <div id="flashSaleTimer" class="font-mono font-black text-base text-white">04:58:19</div>
+          </div>
+          <button onclick="openAddCustomProductModal()" class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs px-4 py-3 rounded-xl shadow flex items-center gap-1.5">
+            <i class="fa-solid fa-plus-circle"></i> + Add Your Product
+          </button>
+        </div>
+      </div>
+
+      <!-- Sub-Category Filter Pills + Sort + Price Filter Bar -->
+      <div class="app-card bg-white rounded-2xl p-3.5 shadow-sm border border-slate-200 space-y-3">
+        <!-- Active Category Title & Live Matched Counter -->
+        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-2.5">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 id="activeCategoryTitle" class="text-base sm:text-lg font-black text-slate-900">All Categories Mega Catalog</h2>
+              <span id="filteredCountBadge" class="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-0.5 rounded-full">
+                12,000 Products
+              </span>
+            </div>
+            <p id="activeCategorySubtitle" class="text-[11px] text-slate-500">
+              Showing page <span id="currentPageLabel" class="font-bold text-slate-800">1</span> • Instant 60fps Virtual Catalog Engine
+            </p>
+          </div>
+
+          <!-- Sort & Per-Page Controls -->
+          <div class="flex flex-wrap items-center gap-2 text-xs">
+            <div class="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1.5 rounded-lg">
+              <span class="text-[11px] font-bold text-slate-600">Max Price:</span>
+              <input id="priceFilterRange" type="range" min="100" max="50000" step="100" value="50000" oninput="handlePriceSlider(this.value)" class="w-24 accent-blue-600 cursor-pointer" />
+              <span id="priceFilterLabel" class="font-mono font-black text-blue-700 text-[11px]">₹50,000</span>
+            </div>
+
+            <select id="catalogSortSelect" onchange="handleSortChange(this.value)" class="bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 font-bold text-slate-700 focus:outline-none">
+              <option value="popular">Sort: Popularity</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="discount">Highest Discount %</option>
+              <option value="rating">Customer Rating (4.5★+)</option>
+            </select>
+
+            <select id="itemsPerPageSelect" onchange="handlePerPageChange(this.value)" class="bg-slate-100 border border-slate-200 rounded-lg px-2 py-1.5 font-bold text-slate-700 focus:outline-none">
+              <option value="24">24 / Page</option>
+              <option value="48" selected>48 / Page</option>
+              <option value="96">96 / Page</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Dynamic Sub-Category Filter Chips -->
+        <div id="subCategoryChipsContainer" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+          <!-- Populated dynamically based on active category -->
+        </div>
+      </div>
+
+      <!-- 12,000+ PRODUCTS GRID -->
+      <div id="megaProductsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <!-- Populated by Virtual Pagination Engine -->
+      </div>
+
+      <!-- PAGINATION & QUICK PAGE JUMPER BAR -->
+      <div class="app-card bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="text-xs text-slate-600 font-semibold">
+          Displaying <strong id="pageRangeText" class="text-slate-900">1 – 48</strong> of <strong id="totalMatchedText" class="text-blue-600">12,000</strong> products
+        </div>
+
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button onclick="goToCatalogPage(1)" class="px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs font-bold hover:bg-slate-100">
+            « First
+          </button>
+          <button onclick="changeCatalogPage(-1)" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-bold">
+            ‹ Prev
+          </button>
+
+          <div id="paginationNumbers" class="flex items-center gap-1">
+            <!-- Page buttons -->
+          </div>
+
+          <button onclick="changeCatalogPage(1)" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm">
+            Next ›
+          </button>
+          <button onclick="goToLastCatalogPage()" class="px-2.5 py-1.5 rounded-lg border border-slate-200 text-xs font-bold hover:bg-slate-100">
+            Last »
+          </button>
+        </div>
+
+        <!-- Direct Page Jump -->
+        <div class="flex items-center gap-1.5 text-xs">
+          <span class="text-slate-500 font-semibold">Jump to Page:</span>
+          <input id="jumpPageInput" type="number" min="1" value="1" class="w-16 border border-slate-300 rounded-lg px-2 py-1 text-center font-mono font-bold" />
+          <button onclick="jumpToInputPage()" class="bg-slate-900 text-amber-400 font-bold px-2.5 py-1 rounded-lg">
+            Go
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB VIEW 2: UNLIMITED CLOUD STORAGE VAULT (INDEXED-DB)    -->
+    <!-- ========================================================= -->
+    <div id="tabView-vault" class="hidden space-y-4">
+      <div class="rounded-2xl bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 text-white p-5 shadow-md flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <span class="bg-emerald-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+            ∞ UNLIMITED INDEXED-DB CLOUD VAULT
+          </span>
+          <h2 class="text-xl font-black mt-1">Store Unlimited Videos, eBooks, Photos & AutoCAD Files</h2>
+          <p class="text-xs text-emerald-100">
+            Bypasses standard 5MB browser limits using Asynchronous IndexedDB (`BharatMultiHubDB_v2`).
+          </p>
+        </div>
+        <button onclick="switchMainTab('store')" class="bg-white text-slate-900 font-black text-xs px-4 py-2.5 rounded-xl shadow">
+          ← Back to 12,000+ Store
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-5 app-card bg-white rounded-2xl p-4 border border-slate-200 space-y-3">
+          <h3 class="font-black text-sm text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-cloud-arrow-up text-blue-600"></i> Upload File to Unlimited Vault
+          </h3>
+          <form onsubmit="handleVaultUpload(event)" class="space-y-3 text-xs">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">File Title:</label>
+              <input id="vaultTitleInp" type="text" required placeholder="e.g. Banarasi Catalog Video / Transformer DWG" class="w-full border border-slate-300 rounded-xl p-2.5" />
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Folder Category:</label>
+              <select id="vaultCatInp" class="w-full border border-slate-300 rounded-xl p-2.5 font-semibold">
+                <option value="Videos & Movies">🎬 HD Videos & Movies</option>
+                <option value="CAD & Blueprints">📐 AutoCAD & SolidWorks Files</option>
+                <option value="PDF Books">📚 PDF eBooks & Manuals</option>
+                <option value="Product Photos">📸 High-Res Product Photos</option>
+              </select>
+            </div>
+            <div class="border-2 border-dashed border-blue-400 bg-blue-50/50 rounded-xl p-4 text-center">
+              <input id="vaultFileInp" type="file" multiple required class="w-full text-xs cursor-pointer" />
+            </div>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl shadow">
+              <i class="fa-solid fa-database mr-1"></i> Save to Unlimited Vault
+            </button>
+          </form>
+        </div>
+
+        <div class="lg:col-span-7 app-card bg-white rounded-2xl p-4 border border-slate-200">
+          <div class="flex justify-between items-center border-b pb-2.5 mb-3">
+            <h3 class="font-black text-sm text-slate-900">Stored Vault Files</h3>
+            <span id="vaultCountLabel" class="text-xs font-bold text-emerald-600">0 Files</span>
+          </div>
+          <div id="vaultFilesContainer" class="space-y-2 max-h-80 overflow-y-auto text-xs">
+            <!-- Populated by IndexedDB -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- TAB VIEW 3: MY ORDERS & GST INVOICES                      -->
+    <!-- ========================================================= -->
+    <div id="tabView-orders" class="hidden space-y-4">
+      <div class="app-card bg-white rounded-2xl p-4 border border-slate-200">
+        <div class="flex justify-between items-center border-b pb-3 mb-3">
+          <div>
+            <h2 class="text-base font-black text-slate-900">My Orders, Rentals & GST Invoices</h2>
+            <p class="text-xs text-slate-500">Download official 18% GST Tax Invoices or track live delivery</p>
+          </div>
+          <button onclick="switchMainTab('store')" class="bg-blue-600 text-white text-xs font-bold px-3.5 py-2 rounded-xl">
+            Continue Shopping
+          </button>
+        </div>
+        <div id="ordersListContainer" class="space-y-2.5 text-xs">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================= -->
+  <!-- FOOTER WITH PASSWORD ADMIN & SUBTLE LOVE SIGNATURE        -->
+  <!-- ========================================================= -->
+  <footer class="bg-slate-950 text-slate-400 text-xs mt-10 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="space-y-2">
+        <div class="text-white font-black text-base italic brand-name-sync">BharatMultiHub</div>
+        <p class="text-[11px] text-slate-400 leading-relaxed">
+          India's 12,000+ Product Multi-Business Super App. Shop Sarees, Fashion, Kids Toys, Electronics, Home, Stationery & Industrial Tools, or Rent Movies, Books & Engineering CAD Drawings.
+        </p>
+        <div class="text-[11px] text-slate-300 space-y-0.5 pt-1">
+          <div><strong>GSTIN:</strong> <span id="footerGstinText" class="font-mono text-amber-300">10AABCB2026B1Z5</span></div>
+          <div><strong>24×7 Support:</strong> <span id="footerWhatsappText">+91 9060196522</span></div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold uppercase text-[11px] mb-2">10 Mega Categories (1,200+ Each)</h4>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#" onclick="selectCategory('Sarees'); return false;" class="hover:text-white">1. Sarees & Ethnic Wear (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Fashion'); return false;" class="hover:text-white">2. Fashion & Apparel (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Toys'); return false;" class="hover:text-white">3. Kids Toys & Games (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Electronics'); return false;" class="hover:text-white">4. Electronics & Gadgets (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Books'); return false;" class="hover:text-white">5. Books & Study eBooks (1,200+)</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold uppercase text-[11px] mb-2">Industrial, Movies & CAD</h4>
+        <ul class="space-y-1 text-[11px]">
+          <li><a href="#" onclick="selectCategory('Home'); return false;" class="hover:text-white">6. Home & Kitchen (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Stationery'); return false;" class="hover:text-white">7. Stationery & Office (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Industrial'); return false;" class="hover:text-white">8. Industrial Tools & Spares (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('Movies'); return false;" class="hover:text-white">9. Online Movies & Courses Rent (1,200+)</a></li>
+          <li><a href="#" onclick="selectCategory('CAD'); return false;" class="hover:text-white">10. AutoCAD, SolidWorks & PLC (1,200+)</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-white font-bold uppercase text-[11px]">Verified Merchant Payment</h4>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 space-y-1 text-[11px]">
+          <div class="text-amber-400 font-bold">Payee Name: <span class="payee-name-sync text-white">MKR</span></div>
+          <div class="font-mono text-slate-300">UPI: <span class="upi-id-sync">9060196522-2@ybl</span></div>
+          <div class="text-[10px] text-slate-400">All Indian Banks (SBI, HDFC, ICICI, Axis, PNB, BoB) • Credit/Debit Cards • EMI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar with Subtle Love Signature & Protected Admin Button -->
+    <div class="border-t border-slate-800/80 py-4 px-4 bg-black/40">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]">
+        <div>&copy; 2026 <strong class="text-white brand-name-sync">BharatMultiHub</strong>. All Rights Reserved.</div>
+
+        <!-- Down Side Subtle Love Symbol for Nisha ( Bindu ) -->
+        <div class="flex items-center gap-1.5 bg-slate-900 px-3.5 py-1 rounded-full border border-rose-500/30 shadow-inner">
+          <span class="heart-glow text-rose-500 text-xs">♥</span>
+          <span class="bg-gradient-to-r from-rose-300 via-pink-200 to-amber-200 bg-clip-text text-transparent font-bold tracking-wide">
+            Nisha ( Bindu )
+          </span>
+        </div>
+
+        <button onclick="openAdminModal()" class="bg-slate-900 hover:bg-slate-800 text-slate-200 hover:text-amber-300 px-3 py-1.5 rounded-lg border border-slate-700 text-[10px] font-bold flex items-center gap-1.5">
+          <i class="fa-solid fa-lock text-amber-400"></i> Admin / Edit Website
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================= -->
+  <!-- FIXED ANDROID BOTTOM NAVIGATION BAR                       -->
+  <!-- ========================================================= -->
+  <nav class="bottom-nav fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 shadow-2xl px-2 py-1.5">
+    <div class="max-w-lg mx-auto grid grid-cols-5 gap-1 text-[10px] font-bold text-slate-500">
+      <button onclick="resetToAllCatalog()" class="flex flex-col items-center py-1 text-blue-600">
+        <i class="fa-solid fa-store text-base mb-0.5"></i>
+        <span>12K+ Store</span>
+      </button>
+      <button onclick="selectCategory('Movies')" class="flex flex-col items-center py-1 hover:text-purple-600">
+        <i class="fa-solid fa-film text-base mb-0.5"></i>
+        <span>Rent Movies</span>
+      </button>
+      <button onclick="selectCategory('CAD')" class="flex flex-col items-center py-1 hover:text-cyan-600">
+        <i class="fa-solid fa-compass-drafting text-base mb-0.5"></i>
+        <span>CAD & Books</span>
+      </button>
+      <button onclick="switchMainTab('vault')" class="flex flex-col items-center py-1 hover:text-emerald-600">
+        <i class="fa-solid fa-cloud-arrow-up text-base mb-0.5"></i>
+        <span>∞ Vault</span>
+      </button>
+      <button onclick="switchMainTab('orders')" class="flex flex-col items-center py-1 hover:text-orange-600">
+        <i class="fa-solid fa-box-open text-base mb-0.5"></i>
+        <span>My Orders</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================= -->
+  <!-- MODAL 1: PRODUCT DETAIL, CAD PREVIEW & RENTAL MODAL       -->
+  <!-- ========================================================= -->
+  <div id="productDetailModal" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 max-h-[92vh] flex flex-col">
+      <div class="bg-slate-900 text-white px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span id="pdModalCatBadge" class="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded uppercase">CATEGORY</span>
+          <span id="pdModalSku" class="text-xs font-mono text-slate-300">SKU-1001</span>
+        </div>
+        <button onclick="closeProductDetailModal()" class="text-white hover:text-rose-400 text-lg font-bold">✕</button>
+      </div>
+      <div id="productDetailModalBody" class="p-4 sm:p-5 overflow-y-auto space-y-4 text-xs">
+        <!-- Populated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL 2: CART DRAWER                                      -->
+  <!-- ========================================================= -->
+  <div id="cartModal" class="fixed inset-0 bg-slate-950/75 z-50 hidden flex justify-end backdrop-blur-sm">
+    <div class="bg-white w-full max-w-md h-full flex flex-col justify-between shadow-2xl">
+      <div class="p-4 bg-blue-600 text-white flex justify-between items-center">
+        <h3 class="font-black text-sm sm:text-base flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-amber-300"></i> My Shopping & Rental Cart
+        </h3>
+        <button onclick="closeCartModal()" class="text-white text-lg font-bold">✕</button>
+      </div>
+
+      <div id="cartItemsContainer" class="p-4 flex-1 overflow-y-auto divide-y divide-slate-100 text-xs">
+        <!-- Cart items -->
+      </div>
+
+      <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-2.5 text-xs">
+        <div class="flex justify-between text-slate-600">
+          <span>Subtotal (Excl. Tax):</span>
+          <strong id="cartSubtotalText">₹0</strong>
+        </div>
+        <div class="flex justify-between text-slate-600">
+          <span>GST (18% Input Credit Available):</span>
+          <strong id="cartGstText">₹0</strong>
+        </div>
+        <div class="flex justify-between text-base font-black text-slate-900 pt-1 border-t">
+          <span>Total Payable:</span>
+          <span id="cartTotalText" class="text-blue-600">₹0</span>
+        </div>
+        <button onclick="proceedCartToCheckout()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-3 rounded-xl shadow text-sm">
+          Proceed to Secure Checkout →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL 3: PAYMENT GATEWAY (MKR UPI + ALL INDIAN BANKS)     -->
+  <!-- ========================================================= -->
+  <div id="paymentGatewayModal" class="fixed inset-0 bg-slate-950/80 z-50 hidden flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 max-h-[92vh] flex flex-col">
+      <div class="bg-gradient-to-r from-purple-800 via-indigo-900 to-slate-900 text-white p-4 flex justify-between items-center">
+        <div>
+          <span class="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded uppercase">VERIFIED PAYMENT GATEWAY</span>
+          <h3 class="font-black text-base mt-0.5">Merchant Receiver: <span class="payee-name-sync text-amber-300">MKR</span></h3>
+        </div>
+        <button onclick="closePaymentModal()" class="text-white text-lg font-bold">✕</button>
+      </div>
+
+      <div class="p-4 sm:p-5 overflow-y-auto grid grid-cols-1 md:grid-cols-12 gap-4 text-xs">
+        <!-- Payment Modes Sidebar -->
+        <div class="md:col-span-5 space-y-1.5">
+          <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl mb-2">
+            <div class="text-[10px] text-slate-500 uppercase font-bold">Order Summary</div>
+            <div id="pgOrderDesc" class="font-bold text-slate-900 line-clamp-1">Product Order</div>
+            <div id="pgAmountText" class="text-xl font-black text-blue-600 mt-0.5">₹999</div>
+          </div>
+
+          <button onclick="switchPayTab('upi')" id="payTabBtn-upi" class="w-full text-left px-3 py-2.5 rounded-xl font-bold bg-blue-600 text-white flex items-center justify-between">
+            <span><i class="fa-solid fa-qrcode mr-1.5"></i> PhonePe / GPay / UPI QR</span>
+            <span class="text-[10px] bg-amber-400 text-slate-950 px-1.5 py-0.5 rounded font-black">INSTANT</span>
+          </button>
+          <button onclick="switchPayTab('card')" id="payTabBtn-card" class="w-full text-left px-3 py-2.5 rounded-xl font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-between">
+            <span><i class="fa-regular fa-credit-card mr-1.5"></i> Credit / Debit Cards</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+          <button onclick="switchPayTab('bank')" id="payTabBtn-bank" class="w-full text-left px-3 py-2.5 rounded-xl font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-building-columns mr-1.5"></i> All Indian Banks NetBanking</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+          <button onclick="switchPayTab('cod')" id="payTabBtn-cod" class="w-full text-left px-3 py-2.5 rounded-xl font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-between">
+            <span><i class="fa-solid fa-truck-fast mr-1.5"></i> Cash on Delivery / EMI</span>
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- Payment Content Panel -->
+        <div class="md:col-span-7 bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <!-- Panel 1: UPI QR -->
+          <div id="payPanel-upi" class="space-y-3 text-center">
+            <div class="text-xs font-bold text-purple-900">Scan with PhonePe, Google Pay, Paytm or BHIM</div>
+            <div class="bg-white p-3 rounded-xl inline-block border-2 border-purple-600 shadow">
+              <canvas id="upiQrCanvas" width="175" height="175"></canvas>
+            </div>
+            <div class="text-xs">
+              <div>Payee: <strong class="payee-name-sync text-slate-900">MKR</strong></div>
+              <div class="flex items-center justify-center gap-1.5 mt-1">
+                <code class="bg-white border px-2 py-0.5 rounded font-mono font-bold text-purple-800 upi-id-sync">9060196522-2@ybl</code>
+                <button onclick="copyMerchantUpi()" class="bg-slate-200 hover:bg-slate-300 px-2 py-0.5 rounded text-[10px] font-bold">Copy</button>
+              </div>
+            </div>
+            <a id="upiDeepLinkBtn" href="#" class="block w-full bg-purple-700 hover:bg-purple-800 text-white font-black py-2.5 rounded-xl shadow">
+              <i class="fa-solid fa-mobile-screen-button mr-1"></i> Open in Mobile UPI App
+            </a>
+            <div class="pt-2 border-t text-left space-y-2">
+              <label class="block text-[11px] font-bold text-slate-600">Enter 12-Digit UTR / Ref No. (Optional):</label>
+              <input id="upiUtrInput" type="text" placeholder="e.g. 629812345678" class="w-full border border-slate-300 rounded-lg p-2 font-mono text-xs" />
+              <button onclick="confirmPaymentSuccess('UPI QR (MKR)')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 rounded-xl shadow">
+                ✓ Confirm Payment & Generate GST Invoice
+              </button>
+            </div>
+          </div>
+
+          <!-- Panel 2: Credit / Debit Card -->
+          <div id="payPanel-card" class="hidden space-y-3">
+            <div class="font-bold text-slate-800">Visa, MasterCard, RuPay & Amex Credit/Debit Cards</div>
+            <input type="text" placeholder="Card Number (XXXX XXXX XXXX XXXX)" maxlength="19" class="w-full border rounded-lg p-2.5 font-mono" />
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" placeholder="MM / YY" maxlength="5" class="border rounded-lg p-2.5 font-mono" />
+              <input type="password" placeholder="CVV" maxlength="4" class="border rounded-lg p-2.5 font-mono" />
+            </div>
+            <input type="text" placeholder="Cardholder Name" class="w-full border rounded-lg p-2.5" />
+            <button onclick="confirmPaymentSuccess('Credit/Debit Card')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl shadow">
+              Pay Securely Now
+            </button>
+          </div>
+
+          <!-- Panel 3: All Indian Banks -->
+          <div id="payPanel-bank" class="hidden space-y-3">
+            <div class="font-bold text-slate-800">Select Your Indian Bank (All Public & Private Banks)</div>
+            <div class="grid grid-cols-3 gap-1.5 text-[11px]">
+              <button onclick="document.getElementById('bankDropdown').value='State Bank of India (SBI)'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">SBI</button>
+              <button onclick="document.getElementById('bankDropdown').value='HDFC Bank'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">HDFC</button>
+              <button onclick="document.getElementById('bankDropdown').value='ICICI Bank'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">ICICI</button>
+              <button onclick="document.getElementById('bankDropdown').value='Axis Bank'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">Axis</button>
+              <button onclick="document.getElementById('bankDropdown').value='Punjab National Bank (PNB)'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">PNB</button>
+              <button onclick="document.getElementById('bankDropdown').value='Bank of Baroda (BoB)'" class="border bg-white p-2 rounded font-bold hover:border-blue-600">Bank of Baroda</button>
+            </div>
+            <select id="bankDropdown" class="w-full border rounded-lg p-2.5 font-semibold bg-white">
+              <option>State Bank of India (SBI)</option>
+              <option>HDFC Bank</option>
+              <option>ICICI Bank</option>
+              <option>Axis Bank</option>
+              <option>Punjab National Bank (PNB)</option>
+              <option>Bank of Baroda (BoB)</option>
+              <option>Canara Bank</option>
+              <option>Union Bank of India</option>
+              <option>Kotak Mahindra Bank</option>
+              <option>IndusInd Bank</option>
+              <option>IDFC FIRST Bank</option>
+              <option>Bank of India (BOI)</option>
+              <option>Indian Bank</option>
+              <option>Central Bank of India</option>
+              <option>Yes Bank</option>
+              <option>Federal Bank</option>
+            </select>
+            <button onclick="confirmPaymentSuccess(document.getElementById('bankDropdown').value)" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl shadow">
+              Proceed to Bank Login →
+            </button>
+          </div>
+
+          <!-- Panel 4: COD / EMI -->
+          <div id="payPanel-cod" class="hidden space-y-3">
+            <div class="font-bold text-slate-800">Cash on Delivery / No-Cost EMI</div>
+            <p class="text-slate-600 text-[11px]">Pay at your doorstep upon delivery or choose 3/6/12 Month No-Cost EMI.</p>
+            <button onclick="confirmPaymentSuccess('Cash on Delivery (COD)')" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-2.5 rounded-xl shadow">
+              Place COD Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- MODAL 4: PASSWORD-PROTECTED MASTER ADMIN CMS (Mnh06ba9050*)-->
+  <!-- ========================================================= -->
+  <div id="adminModal" class="fixed inset-0 bg-slate-950/85 z-50 hidden flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm">
+    <div class="bg-white rounded-2xl max-w-3xl w-full overflow-hidden shadow-2xl border border-slate-200 max-h-[92vh] flex flex-col">
+      <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-shield-halved text-amber-400"></i>
+          <h3 class="font-black text-sm sm:text-base">Master Admin & No-Code Website Editor</h3>
+        </div>
+        <button onclick="closeAdminModal()" class="text-white text-lg font-bold">✕</button>
+      </div>
+
+      <!-- Password Gate -->
+      <div id="adminAuthGate" class="p-6 space-y-4 text-xs">
+        <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-amber-900 font-medium">
+          Enter your Master Admin Password to unlock full website editing (Company Name, UPI ID, GSTIN, Add/Edit Products).
+        </div>
+        <div>
+          <label class="font-bold text-slate-700 block mb-1">Admin Password:</label>
+          <input id="adminPasswordInp" type="password" placeholder="Enter password..." class="w-full border border-slate-300 rounded-xl p-2.5 font-mono text-sm" />
+          <p id="adminAuthError" class="text-rose-600 font-bold mt-1 hidden">Incorrect Password! Please enter Mnh06ba9050*</p>
+        </div>
+        <button onclick="verifyAdminPassword()" class="w-full bg-slate-900 hover:bg-slate-800 text-amber-400 font-black py-3 rounded-xl shadow">
+          <i class="fa-solid fa-unlock-keyhole mr-1"></i> Unlock Master Admin CMS
+        </button>
+      </div>
+
+      <!-- Unlocked CMS Dashboard -->
+      <div id="adminCmsBody" class="hidden p-5 overflow-y-auto space-y-5 text-xs">
+        <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl flex justify-between items-center">
+          <span class="font-bold text-emerald-900"><i class="fa-solid fa-circle-check mr-1"></i> Admin Unlocked! Changes apply immediately without coding.</span>
+          <button onclick="lockAdminSession()" class="bg-rose-600 text-white font-bold px-3 py-1 rounded-lg text-[11px]">Lock Admin</button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Company Name (Shown Only):</label>
+            <input id="admCompanyInp" type="text" value="BharatMultiHub" class="w-full border rounded-lg p-2 font-bold" />
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Payment Receiver Name (MKR):</label>
+            <input id="admPayeeInp" type="text" value="MKR" class="w-full border rounded-lg p-2 font-bold text-purple-700" />
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Official UPI ID:</label>
+            <input id="admUpiInp" type="text" value="9060196522-2@ybl" class="w-full border rounded-lg p-2 font-mono font-bold" />
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Customer Care WhatsApp:</label>
+            <input id="admWhatsappInp" type="text" value="9060196522" class="w-full border rounded-lg p-2 font-mono font-bold" />
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">GSTIN (Provisional / Original):</label>
+            <input id="admGstinInp" type="text" value="10AABCB2026B1Z5" class="w-full border rounded-lg p-2 font-mono font-bold uppercase" />
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Header Theme Color:</label>
+            <input id="admColorInp" type="color" value="#2874f0" class="w-full h-9 border rounded-lg p-1 cursor-pointer" />
+          </div>
+        </div>
+
+        <button onclick="saveAdminSettings()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-2.5 rounded-xl shadow">
+          💾 Save All Branding, UPI & GST Settings
+        </button>
+
+        <!-- Quick Add Custom Product Inside Admin -->
+        <div class="border-t pt-4">
+          <h4 class="font-black text-slate-900 mb-2">➕ Add Custom Product to 12,000+ Catalog</h4>
+          <form onsubmit="handleCustomProductAdd(event)" class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <input id="newProdTitle" type="text" required placeholder="Product Title" class="border rounded-lg p-2 sm:col-span-2" />
+            <select id="newProdCat" class="border rounded-lg p-2 font-bold">
+              <option value="Sarees">Sarees & Ethnic</option>
+              <option value="Fashion">Fashion & Apparel</option>
+              <option value="Toys">Kids Toys & Games</option>
+              <option value="Electronics">Electronics & Gadgets</option>
+              <option value="Books">Books & eBooks</option>
+              <option value="Home">Home & Kitchen</option>
+              <option value="Stationery">Stationery & Office</option>
+              <option value="Industrial">Industrial & Tools</option>
+              <option value="Movies">Movies & Courses Rent</option>
+              <option value="CAD">Engineering CAD & Code</option>
+            </select>
+            <input id="newProdPrice" type="number" required placeholder="Selling Price (₹)" class="border rounded-lg p-2" />
+            <input id="newProdMrp" type="number" required placeholder="MRP (₹)" class="border rounded-lg p-2" />
+            <input id="newProdImg" type="url" placeholder="Image URL (optional)" class="border rounded-lg p-2" />
+            <button type="submit" class="sm:col-span-3 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 rounded-xl">
+              Publish New Product to Live Store
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="appToast" class="fixed bottom-20 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl border border-amber-400/50 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="appToastText">Ready</span>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 12,000+ MEGA CATALOG ENGINE & SUPER APP JAVASCRIPT        -->
+  <!-- ========================================================= -->
+  <script>
+    /* ========================================================= */
+    /* 1. CONFIGURATION & PRIVACY STATE                          */
+    /* ========================================================= */
+    let APP_CONFIG = JSON.parse(localStorage.getItem('bmh_12k_config')) || {
+      companyName: 'BharatMultiHub',
+      payeeName: 'MKR',
+      upiId: '9060196522-2@ybl',
+      whatsapp: '9060196522',
+      gstin: '10AABCB2026B1Z5',
+      themeColor: '#2874f0',
+      adminPass: 'Mnh06ba9050*'
+    };
+
+    const CURRENCY_MAP = {
+      INR: { sym: '₹', rate: 1 },
+      USD: { sym: '$', rate: 0.012 },
+      SAR: { sym: '﷼ ', rate: 0.045 },
+      AED: { sym: 'د.إ ', rate: 0.044 },
+      EUR: { sym: '€', rate: 0.011 }
+    };
+    let currentCurrency = 'INR';
+
+    function formatPrice(inr) {
+      const c = CURRENCY_MAP[currentCurrency] || CURRENCY_MAP.INR;
+      const val = inr * c.rate;
+      return currentCurrency === 'INR' ? `${c.sym}${Math.round(val).toLocaleString('en-IN')}` : `${c.sym}${val.toFixed(2)}`;
+    }
+
+    /* ========================================================= */
+    /* 2. 10 CATEGORIES BLUEPRINT (1,200 ITEMS PER CATEGORY)     */
+    /*    10 Categories × 1,200 Items = 12,000+ Total Products   */
+    /* ========================================================= */
+    const CATEGORY_BLUEPRINTS = [
+      {
+        id: 'Sarees',
+        name: 'Sarees & Ethnic',
+        icon: 'fa-person-dress',
+        color: 'from-pink-500 to-rose-600',
+        countPerCat: 1200,
+        basePrice: 599,
+        priceStep: 45,
+        subCategories: ['Banarasi Silk', 'Kanjeevaram Zari', 'Chanderi Cotton', 'Paithani Silk', 'Georgette Partywear', 'Bandhani Print', 'Organza Floral', 'Sambalpuri Ikat', 'Bhagalpuri Tussar', 'Bridal Lehenga Saree'],
+        brands: ['KashiWeaves', 'RoyalZari', 'VastraVilla', 'SilkAura', 'NariShakti', 'EthnicLoom', 'BanarasHeritage', 'MeenaBazaarPro'],
+        adjectives: ['Pure Handloom', 'Royal Zari Border', 'Festive Wedding Edition', 'Heavy Embroidered', 'Soft Lichi Silk', 'Gold Tissue Woven', 'Designer Jacquard', 'Traditional Temple Border'],
+        specs: 'With Unstitched Blouse Piece • Length: 6.3 Meters • Dry Clean / Gentle Wash',
+        images: [
+          'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Fashion',
+        name: 'Fashion & Apparel',
+        icon: 'fa-shirt',
+        color: 'from-blue-500 to-indigo-600',
+        countPerCat: 1200,
+        basePrice: 399,
+        priceStep: 35,
+        subCategories: ['Mens Kurta Pajama', 'Formal Cotton Shirts', 'Slim Fit Denim Jeans', 'Womens Anarkali Kurti', 'Executive Blazers', 'Winter Bomber Jackets', 'Active Sportswear', 'Kids Ethnic Sherwani', 'Designer Palazzo Set', 'Polo T-Shirts'],
+        brands: ['UrbanThread', 'RajwadaMens', 'IndigoDenim', 'ModaVista', 'FitPulse', 'ClassicTailor', 'DesiVibe', 'MetroStyle'],
+        adjectives: ['100% Combed Cotton', 'Breathable Slim-Fit', 'Festive Sequence Work', 'Wrinkle-Free Executive', 'Stretchable Comfort', 'All-Season Premium', 'Handcrafted Chikankari', 'Luxury Tailored'],
+        specs: 'Sizes: S, M, L, XL, XXL • Colorfast Fabric • 7-Day Easy Size Exchange',
+        images: [
+          'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Toys',
+        name: 'Kids Toys & Games',
+        icon: 'fa-gamepad',
+        color: 'from-emerald-500 to-teal-600',
+        countPerCat: 1200,
+        basePrice: 299,
+        priceStep: 30,
+        subCategories: ['4WD RC Rock Crawler', 'STEM Robotics Kit', 'Magnetic Building Blocks', 'Die-Cast Metal Cars', 'Musical Learning Tablet', 'Dream Doll House', 'Foldable Camera Drone', 'Family Board Games', 'Kids Electric Ride-On Jeep', '3D Wooden Puzzles'],
+        brands: ['ToyKingdom', 'RoboSpark', 'SpeedRacerRC', 'KiddoJoy', 'SmartBlocks', 'JuniorGenius', 'WonderPlay', 'AeroDroneKids'],
+        adjectives: ['Rechargeable 2.4GHz', 'Non-Toxic ABS Safe', 'Interactive LED & Sound', 'High-Torque Off-Road', 'Montessori Educational', 'Shockproof Unbreakable', ' DIY Stem Engineering', 'Remote Controlled Pro'],
+        specs: 'BIS Safety Certified • Rechargeable Battery Included • Age Group: 3 to 14 Years',
+        images: [
+          'https://images.unsplash.com/photo-1594787318286-3d835c1d207f?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Electronics',
+        name: 'Electronics & Gadgets',
+        icon: 'fa-mobile-screen-button',
+        color: 'from-violet-600 to-purple-700',
+        countPerCat: 1200,
+        basePrice: 799,
+        priceStep: 120,
+        subCategories: ['5G Smartphones', 'ANC Wireless Earbuds', 'AMOLED Smartwatches', 'Core i7 Gaming Laptops', '4K QLED Smart TVs', 'Dolby Soundbars', '20000mAh Fast Powerbanks', 'WiFi PTZ CCTV Cameras', 'Mechanical RGB Keyboards', 'Android Study Tablets'],
+        brands: ['NovaTech', 'SonicPulse', 'VoltEdge', 'HyperCore', 'Vision4K', 'AetherAudio', 'SmartGuard', 'GigaBytePro'],
+        adjectives: ['120Hz Super AMOLED', 'Active Noise Cancelling', '65W GaN Fast Charge', 'AI Quad Camera', 'IP68 Waterproof', 'Dolby Atmos Surround', 'Wi-Fi 6 Dual Band', '1-Year Brand Warranty'],
+        specs: '1 Year Manufacturer Warranty • GST Tax Invoice Included • Free Express Delivery',
+        images: [
+          'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Books',
+        name: 'Books & eBooks',
+        icon: 'fa-book-open',
+        color: 'from-amber-500 to-orange-600',
+        countPerCat: 1200,
+        basePrice: 149,
+        priceStep: 15,
+        subCategories: ['Mechanical Engg Handbooks', 'Python & AI Programming', 'UPSC & State PCS Guides', 'SSC-JE & GATE Solved Papers', 'Hindi Sahitya Classics', 'Stock Market & Finance', 'Industrial Welding & QA', 'Self-Help & Leadership', 'Electrical Transformer Design', 'Kids Illustrated Encyclopedia'],
+        brands: ['TechPressIndia', 'ScholarsHub', 'EnggAcademy', 'GyanBharati', 'CodeMasterPub', 'CivilPrepPro', 'StandardBooks', 'VidyapeethPress'],
+        adjectives: ['2026 Revised Edition', 'Hardcover + Instant PDF', 'Solved Numerical Bank', 'Illustrated Step-by-Step', 'Bestselling Author', 'Exam-Oriented Complete', 'Industry Reference', 'Bilingual Edition'],
+        specs: 'Available in Physical Print + Instant Online eBook Reader • DRM Protected',
+        images: [
+          'https://images.unsplash.com/photo-1532012164546-f432f2e3777f?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Home',
+        name: 'Home & Kitchen',
+        icon: 'fa-kitchen-set',
+        color: 'from-rose-500 to-orange-500',
+        countPerCat: 1200,
+        basePrice: 449,
+        priceStep: 40,
+        subCategories: ['Granite Non-Stick Cookware', '750W Mixer Grinders', 'Digital Air Fryers', 'Orthopedic Memory Mattresses', 'Crystal LED Chandeliers', 'Jaipuri King Bedsheets', 'RO+UV+UF Water Purifiers', 'Robotic Vacuum Cleaners', 'Tri-Ply Steel Pressure Cookers', 'Modular Kitchen Organizers'],
+        brands: ['ChefMaster', 'HomeLuxuria', 'PureAquaRO', 'SleepCloud', 'KitchCraft', 'GlowDecor', 'SteelPride', 'SmartHearth'],
+        adjectives: ['Induction & Gas Compatible', 'Food-Grade 304 Stainless', 'Energy Saving 5-Star', 'Heavy Duty Copper Motor', '100% Egyptian Cotton', 'Zero-Oil Healthy Cooking', 'Scratch-Resistant Coating', '2-Year Home Service'],
+        specs: 'ISI Certified • Warranty Card Inside • Easy Doorstep Replacement',
+        images: [
+          'https://images.unsplash.com/photo-1584990347449-a2d4c2c044c9?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Stationery',
+        name: 'Stationery & Office',
+        icon: 'fa-pen-ruler',
+        color: 'from-cyan-500 to-blue-600',
+        countPerCat: 1200,
+        basePrice: 120,
+        priceStep: 18,
+        subCategories: ['Scientific Calculators', 'Engineering Mini Drafters', 'Luxury Fountain Pens', 'Leather Office Organizers', 'Magnetic Whiteboards', 'A4 80GSM Copier Bundles', 'Acrylic Artist Paint Sets', 'Thermal Barcode Printers', 'Spiral Binding Machines', 'Desk Mesh Organizers'],
+        brands: ['DraftPro', 'ScriptoLux', 'CalcMaster', 'OfficeMate', 'ArtisanStudio', 'PaperGold', 'PrecisionDraw', 'ScholarKit'],
+        adjectives: ['417-Function Non-Programmable', 'Laser-Etched Precision Scale', 'Smooth German Ink Refill', 'Heavy GSM Acid-Free', 'Ergonomic Grip Design', 'Architect & B.Tech Approved', 'waterproof Archival Quality', 'Corporate Gift Pack'],
+        specs: 'Bulk GST Billing Available • Ideal for Engineers, Students & Offices',
+        images: [
+          'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Industrial',
+        name: 'Industrial & Tools',
+        icon: 'fa-gears',
+        color: 'from-slate-700 to-slate-900',
+        countPerCat: 1200,
+        basePrice: 899,
+        priceStep: 95,
+        subCategories: ['CNC Press Brake V-Dies', 'Fiber Laser Cutting Nozzles', 'IGBT MIG/TIG Welders', 'Mitutoyo-Style Vernier Calipers', 'Power Transformer Valves & Bushings', 'Heavy Angle Grinders', 'Hydraulic Torque Wrenches', 'PLC & HMI Automation Units', 'Ultrasonic NDT Flaw Detectors', 'Steel Toe Safety Shoes'],
+        brands: ['KayFabTools', 'BouvTech', 'PrecisionMach', 'WeldForcePro', 'IndusGauge', 'TrafoSpares', 'AutoPLC', 'TitanSafety'],
+        adjectives: ['Hardened 42CrMo4 Alloy', 'IS:2062 Fabrication Grade', '0.01mm Digital Accuracy', 'Heavy Duty 3-Phase', 'High-Voltage Tested', 'CNC Ground Precision', 'IP65 Industrial Rated', 'Factory Calibration Cert'],
+        specs: '18% GST Invoice for Input Tax Credit • Industrial Grade • Pan-India Dispatch',
+        images: [
+          'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'Movies',
+        name: 'Movies & Courses Rent',
+        icon: 'fa-film',
+        color: 'from-purple-600 to-pink-600',
+        countPerCat: 1200,
+        basePrice: 49,
+        priceStep: 10,
+        subCategories: ['4K Action Blockbusters', 'Sci-Fi & Space Thrillers', 'Family & Comedy Cinema', 'South Indian Dubbed Hits', 'AutoCAD & SolidWorks Video Course', 'Python & Full-Stack Bootcamp', 'Transformer Manufacturing Documentary', 'Suspense Crime Classics', 'Kids Animated Movies', 'PLC & SCADA Masterclass'],
+        brands: ['BMHCinema4K', 'PrimeStream', 'CineGold', 'SkillStreamPro', 'BollywoodFlix', 'WorldCinemaHD', 'EnggVideoLab', 'UltraRent'],
+        adjectives: ['48-Hour 4K UHD Rental Pass', 'Dolby Digital 5.1 Audio', 'Multi-Language Subtitles', 'Instant Online Streaming', 'Ad-Free Theater Print', 'Includes Practice Exercise', 'Family Safe Certified', 'Zero Buffering Cloud'],
+        specs: 'Instant 48-Hour Online Streaming Pass • Watch on Mobile, Laptop or Smart TV',
+        images: [
+          'https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=500&q=80'
+        ]
+      },
+      {
+        id: 'CAD',
+        name: 'Engineering CAD & Code',
+        icon: 'fa-compass-drafting',
+        color: 'from-sky-600 to-indigo-800',
+        countPerCat: 1200,
+        basePrice: 79,
+        priceStep: 20,
+        subCategories: ['AutoCAD .DWG Transformer Tanks', 'SolidWorks 3D Press Brake Models', 'Inventor Sugar Mill Gearboxes', 'PEB Factory Shed Structural DWG', '11kV/33kV Switchgear Schematics', 'Sheet Metal CNC Nesting DXF', 'Siemens S7-1200 PLC Ladder Logic', 'Pressure Vessel ASME Sec VIII DWG', 'EOT Crane 20T Assembly CAD', 'Python & Next.js Source Projects'],
+        brands: ['CAD Repository', 'BlueprintPro', 'MechDesignLab', 'TrafoCAD', 'SolidModels3D', 'PLCLogicHub', 'StructBim', 'FabNestDXF'],
+        adjectives: ['Full Parametric .DWG/.SLDPRT', 'With Complete BOM & Weight', 'GD&T ISO-2768 Tolerances', 'Laser Cutting Ready DXF', 'FE-Analysis Validated', '3rd-Angle Projection Sheet', 'Watermarked DRM Preview', 'Production Shop-Floor Ready'],
+        specs: 'Instant Online Blueprint Viewer + Downloadable .DWG / .SLDPRT / .PDF Package',
+        images: [
+          'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=500&q=80',
+          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80'
+        ]
+      }
+    ];
+
+    /* ========================================================= */
+    /* 3. GENERATE 12,000+ PRODUCTS IN MEMORY (1,200 PER CAT)    */
+    /* ========================================================= */
+    let ALL_PRODUCTS = [];
+    let customAddedProducts = JSON.parse(localStorage.getItem('bmh_12k_custom')) || [];
+
+    function buildTwelveThousandCatalog() {
+      const generated = [...customAddedProducts];
+      let globalSerial = 10001;
+
+      CATEGORY_BLUEPRINTS.forEach((cat) => {
+        const totalInCat = cat.countPerCat; // 1,200 items per category
+        for (let i = 1; i <= totalInCat; i++) {
+          const subCat = cat.subCategories[(i - 1) % cat.subCategories.length];
+          const brand = cat.brands[(i * 3) % cat.brands.length];
+          const adj = cat.adjectives[(i * 7) % cat.adjectives.length];
+          const img = cat.images[(i - 1) % cat.images.length];
+
+          const priceVariation = ((i * 17) % 35) * cat.priceStep;
+          const price = cat.basePrice + priceVariation;
+          const discountPct = 20 + ((i * 13) % 55); // 20% to 74% off
+          const mrp = Math.round(price / (1 - discountPct / 100));
+          const rating = (4.1 + ((i * 11) % 10) * 0.09).toFixed(1);
+          const reviews = 45 + ((i * 29) % 4800);
+          const sku = `BMH-${cat.id.substring(0, 3).toUpperCase()}-${globalSerial++}`;
+
+          generated.push({
+            id: sku,
+            sku: sku,
+            catId: cat.id,
+            catName: cat.name,
+            subCat: subCat,
+            brand: brand,
+            title: `${brand} ${adj} ${subCat} – Edition #${i}`,
+            price: price,
+            mrp: mrp,
+            discount: discountPct,
+            rating: parseFloat(rating),
+            reviews: reviews,
+            stock: 5 + (i % 60),
+            specs: cat.specs,
+            image: img,
+            isRental: cat.id === 'Movies' || cat.id === 'CAD'
+          });
+        }
+      });
+
+      ALL_PRODUCTS = generated;
+      document.getElementById('topTotalCatalogBadge').innerText = ALL_PRODUCTS.length.toLocaleString('en-IN') + '+';
+    }
+
+    /* ========================================================= */
+    /* 4. FILTER, SEARCH, SORT & VIRTUAL PAGINATION ENGINE       */
+    /* ========================================================= */
+    let activeCategory = 'All';
+    let activeSubCategory = 'All';
+    let searchQuery = '';
+    let maxPriceFilter = 50000;
+    let sortMode = 'popular';
+    let itemsPerPage = 48;
+    let currentPage = 1;
+    let filteredCatalog = [];
+
+    function renderCategoryDirectoryBar() {
+      const bar = document.getElementById('categoryVisualBar');
+      bar.innerHTML = CATEGORY_BLUEPRINTS.map(cat => {
+        const isSelected = activeCategory === cat.id;
+        const count = ALL_PRODUCTS.filter(p => p.catId === cat.id).length;
+        return `
+          <button onclick="selectCategory('${cat.id}')" class="p-2.5 rounded-xl border text-left transition flex flex-col justify-between ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-md scale-[1.02]' : 'bg-slate-50 hover:bg-blue-50/60 border-slate-200 text-slate-800'}">
+            <div class="flex items-center justify-between">
+              <div class="w-7 h-7 rounded-lg bg-gradient-to-br ${cat.color} text-white flex items-center justify-center text-xs shadow-sm">
+                <i class="fa-solid ${cat.icon}"></i>
+              </div>
+              <span class="text-[10px] font-mono font-extrabold px-1.5 py-0.5 rounded ${isSelected ? 'bg-amber-400 text-slate-950' : 'bg-emerald-100 text-emerald-800'}">
+                ${count.toLocaleString('en-IN')}+
+              </span>
+            </div>
+            <div class="mt-2">
+              <div class="text-[11px] font-black leading-tight line-clamp-1">${cat.name}</div>
+              <div class="text-[9px] ${isSelected ? 'text-blue-100' : 'text-slate-500'}">10 Sub-Categories</div>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderSubCategoryPills() {
+      const container = document.getElementById('subCategoryChipsContainer');
+      if (activeCategory === 'All') {
+        container.innerHTML = `
+          <button onclick="selectSubCategory('All')" class="px-3 py-1 rounded-full text-xs font-bold bg-blue-600 text-white shrink-0">
+            All 10 Categories (12,000+ Items)
+          </button>
+          ${CATEGORY_BLUEPRINTS.map(c => `
+            <button onclick="selectCategory('${c.id}')" class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 hover:bg-blue-50 text-slate-700 shrink-0 border border-slate-200">
+              ${c.name} (1,200)
+            </button>
+          `).join('')}
+        `;
+        return;
+      }
+
+      const catObj = CATEGORY_BLUEPRINTS.find(c => c.id === activeCategory);
+      if (!catObj) return;
+
+      container.innerHTML = `
+        <button onclick="selectSubCategory('All')" class="px-3 py-1 rounded-full text-xs font-bold shrink-0 ${activeSubCategory === 'All' ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-700'}">
+          All ${catObj.name} (1,200+)
+        </button>
+        ${catObj.subCategories.map(sub => `
+          <button onclick="selectSubCategory('${sub}')" class="px-3 py-1 rounded-full text-xs font-semibold shrink-0 border ${activeSubCategory === sub ? 'bg-amber-400 text-slate-950 border-amber-500 font-black' : 'bg-slate-50 hover:bg-slate-100 text-slate-700 border-slate-200'}">
+            ${sub} (120)
+          </button>
+        `).join('')}
+      `;
+    }
+
+    function applyCatalogFilters() {
+      const q = searchQuery.toLowerCase().trim();
+
+      filteredCatalog = ALL_PRODUCTS.filter(item => {
+        if (activeCategory !== 'All' && item.catId !== activeCategory) return false;
+        if (activeSubCategory !== 'All' && item.subCat !== activeSubCategory) return false;
+        if (item.price > maxPriceFilter) return false;
+        if (q) {
+          const match =
+            item.title.toLowerCase().includes(q) ||
+            item.subCat.toLowerCase().includes(q) ||
+            item.brand.toLowerCase().includes(q) ||
+            item.sku.toLowerCase().includes(q) ||
+            item.catName.toLowerCase().includes(q);
+          if (!match) return false;
+        }
+        return true;
+      });
+
+      if (sortMode === 'price_asc') filteredCatalog.sort((a, b) => a.price - b.price);
+      else if (sortMode === 'price_desc') filteredCatalog.sort((a, b) => b.price - a.price);
+      else if (sortMode === 'discount') filteredCatalog.sort((a, b) => b.discount - a.discount);
+      else if (sortMode === 'rating') filteredCatalog.sort((a, b) => b.rating - a.rating);
+
+      // Update Header Titles
+      const catObj = CATEGORY_BLUEPRINTS.find(c => c.id === activeCategory);
+      document.getElementById('activeCategoryTitle').innerText =
+        activeCategory === 'All'
+          ? 'All Categories Mega Catalog'
+          : `${catObj.name} ${activeSubCategory !== 'All' ? '› ' + activeSubCategory : ''}`;
+
+      document.getElementById('filteredCountBadge').innerText = `${filteredCatalog.length.toLocaleString('en-IN')} Products`;
+      document.getElementById('totalMatchedText').innerText = filteredCatalog.length.toLocaleString('en-IN');
+
+      renderCurrentCatalogPage();
+    }
+
+    function renderCurrentCatalogPage() {
+      const grid = document.getElementById('megaProductsGrid');
+      const totalItems = filteredCatalog.length;
+      const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+
+      const startIdx = (currentPage - 1) * itemsPerPage;
+      const endIdx = Math.min(startIdx + itemsPerPage, totalItems);
+      const pageSlice = filteredCatalog.slice(startIdx, endIdx);
+
+      document.getElementById('currentPageLabel').innerText = `${currentPage} of ${totalPages}`;
+      document.getElementById('pageRangeText').innerText = totalItems === 0 ? '0 – 0' : `${(startIdx + 1).toLocaleString('en-IN')} – ${endIdx.toLocaleString('en-IN')}`;
+      document.getElementById('jumpPageInput').value = currentPage;
+      document.getElementById('jumpPageInput').max = totalPages;
+
+      if (pageSlice.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-white rounded-2xl p-10 text-center border border-slate-200 space-y-2">
+            <i class="fa-solid fa-magnifying-glass text-3xl text-slate-300"></i>
+            <div class="font-black text-base text-slate-800">No matching products found</div>
+            <p class="text-xs text-slate-500">Try clearing your search filter or increasing the maximum price slider.</p>
+            <button onclick="resetToAllCatalog()" class="bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-xl mt-2">
+              Reset Filters (Show All 12,000+ Products)
+            </button>
+          </div>
+        `;
+      } else {
+        grid.innerHTML = pageSlice.map(p => {
+          const isWished = wishlistIds.includes(p.id);
+          return `
+            <div class="app-card bg-white rounded-xl border border-slate-200/90 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between group">
+              <div>
+                <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                  <img
+                    src="${p.image}"
+                    alt="${p.title}"
+                    loading="lazy"
+                    onclick="openProductDetail('${p.id}')"
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300 cursor-pointer"
+                  />
+                  <span class="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] font-black px-1.5 py-0.5 rounded shadow">
+                    ${p.discount}% OFF
+                  </span>
+                  <button
+                    onclick="toggleWishlistItem('${p.id}')"
+                    class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow text-xs ${isWished ? 'text-rose-600' : 'text-slate-400'}"
+                  >
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                  <span class="absolute bottom-1.5 left-1.5 bg-slate-950/75 text-white text-[9px] font-mono px-1.5 py-0.5 rounded">
+                    ${p.sku}
+                  </span>
+                </div>
+
+                <div class="p-2.5">
+                  <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase">
+                    <span class="truncate">${p.subCat}</span>
+                    <span class="text-blue-600">${p.brand}</span>
+                  </div>
+                  <h3
+                    onclick="openProductDetail('${p.id}')"
+                    class="font-bold text-xs text-slate-800 line-clamp-2 mt-0.5 cursor-pointer hover:text-blue-600 leading-snug"
+                  >
+                    ${p.title}
+                  </h3>
+
+                  <div class="flex items-center gap-1.5 mt-1.5">
+                    <span class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded flex items-center gap-0.5">
+                      ${p.rating} <i class="fa-solid fa-star text-[8px]"></i>
+                    </span>
+                    <span class="text-[10px] text-slate-400">(${p.reviews.toLocaleString('en-IN')})</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-2.5 pt-0">
+                <div class="flex items-baseline gap-1.5 pt-1.5 border-t border-slate-100">
+                  <span class="text-sm font-black text-slate-900">${formatPrice(p.price)}</span>
+                  <span class="text-[10px] text-slate-400 line-through">${formatPrice(p.mrp)}</span>
+                </div>
+
+                <div class="mt-2 grid grid-cols-2 gap-1">
+                  <button
+                    onclick="addToCart('${p.id}')"
+                    class="bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold py-1.5 rounded-lg text-[11px] transition"
+                  >
+                    ${p.isRental ? 'Rent / Cart' : '+ Cart'}
+                  </button>
+                  <button
+                    onclick="buyNowSingle('${p.id}')"
+                    class="bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-1.5 rounded-lg text-[11px] transition"
+                  >
+                    ${p.catId === 'CAD' ? 'CAD View' : 'Buy Now'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      renderPaginationControls(totalPages);
+    }
+
+    function renderPaginationControls(totalPages) {
+      const container = document.getElementById('paginationNumbers');
+      let pages = [];
+      const start = Math.max(1, currentPage - 2);
+      const end = Math.min(totalPages, currentPage + 2);
+      for (let p = start; p <= end; p++) pages.push(p);
+
+      container.innerHTML = pages.map(p => `
+        <button
+          onclick="goToCatalogPage(${p})"
+          class="w-8 h-8 rounded-lg text-xs font-black transition ${p === currentPage ? 'bg-blue-600 text-white shadow' : 'bg-slate-100 hover:bg-slate-200 text-slate-700'}"
+        >
+          ${p}
+        </button>
+      `).join('');
+    }
+
+    function selectCategory(catId) {
+      switchMainTab('store');
+      activeCategory = catId;
+      activeSubCategory = 'All';
+      currentPage = 1;
+      document.getElementById('desktopCatSelect').value = catId;
+      renderCategoryDirectoryBar();
+      renderSubCategoryPills();
+      applyCatalogFilters();
+    }
+
+    function selectSubCategory(subName) {
+      activeSubCategory = subName;
+      currentPage = 1;
+      renderSubCategoryPills();
+      applyCatalogFilters();
+    }
+
+    function resetToAllCatalog() {
+      switchMainTab('store');
+      activeCategory = 'All';
+      activeSubCategory = 'All';
+      searchQuery = '';
+      maxPriceFilter = 50000;
+      currentPage = 1;
+      document.getElementById('desktopSearchInput').value = '';
+      document.getElementById('mobileSearchInput').value = '';
+      document.getElementById('desktopCatSelect').value = 'All';
+      document.getElementById('priceFilterRange').value = 50000;
+      document.getElementById('priceFilterLabel').innerText = '₹50,000';
+      renderCategoryDirectoryBar();
+      renderSubCategoryPills();
+      applyCatalogFilters();
+    }
+
+    function handleSearchInput(val) {
+      searchQuery = val;
+      currentPage = 1;
+      applyCatalogFilters();
+    }
+
+    function handlePriceSlider(val) {
+      maxPriceFilter = parseInt(val);
+      document.getElementById('priceFilterLabel').innerText = `₹${maxPriceFilter.toLocaleString('en-IN')}`;
+      currentPage = 1;
+      applyCatalogFilters();
+    }
+
+    function handleSortChange(val) {
+      sortMode = val;
+      currentPage = 1;
+      applyCatalogFilters();
+    }
+
+    function handlePerPageChange(val) {
+      itemsPerPage = parseInt(val);
+      currentPage = 1;
+      renderCurrentCatalogPage();
+    }
+
+    function changeCatalogPage(delta) {
+      currentPage += delta;
+      renderCurrentCatalogPage();
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    function goToCatalogPage(p) {
+      currentPage = p;
+      renderCurrentCatalogPage();
+      window.scrollTo({ top: 180, behavior: 'smooth' });
+    }
+
+    function goToLastCatalogPage() {
+      const totalPages = Math.max(1, Math.ceil(filteredCatalog.length / itemsPerPage));
+      goToCatalogPage(totalPages);
+    }
+
+    function jumpToInputPage() {
+      const p = parseInt(document.getElementById('jumpPageInput').value) || 1;
+      goToCatalogPage(p);
+    }
+
+    /* ========================================================= */
+    /* 5. PRODUCT DETAILS, CAD BLUEPRINT & MOVIE STREAM PREVIEW  */
+    /* ========================================================= */
+    function openProductDetail(prodId) {
+      const p = ALL_PRODUCTS.find(x => x.id === prodId);
+      if (!p) return;
+
+      document.getElementById('pdModalCatBadge').innerText = p.catName;
+      document.getElementById('pdModalSku').innerText = p.sku;
+
+      const isCad = p.catId === 'CAD';
+      const isMovie = p.catId === 'Movies';
+
+      document.getElementById('productDetailModalBody').innerHTML = `
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+          <div class="sm:col-span-5">
+            ${isCad ? `
+              <div class="blueprint-grid rounded-xl p-4 text-cyan-300 border border-cyan-500/40 aspect-square flex flex-col justify-between">
+                <div class="text-[10px] font-mono uppercase text-amber-300">DRM Protected CAD Blueprint</div>
+                <svg viewBox="0 0 200 140" class="w-full stroke-cyan-400 fill-none" stroke-width="1.5">
+                  <rect x="10" y="10" width="180" height="120" />
+                  <circle cx="70" cy="70" r="35" stroke="#facc15" />
+                  <line x1="25" y1="70" x2="115" y2="70" stroke="#f43f5e" stroke-dasharray="4,2" />
+                  <rect x="125" y="30" width="50" height="80" />
+                </svg>
+                <div class="text-[9px] font-mono text-center text-white bg-black/50 py-1 rounded">
+                  WATERMARK: ${APP_CONFIG.companyName}
+                </div>
+              </div>
+            ` : `
+              <img src="${p.image}" class="w-full aspect-square object-cover rounded-xl border" />
+            `}
+          </div>
+
+          <div class="sm:col-span-7 space-y-2.5">
+            <div class="text-[11px] font-bold text-blue-600 uppercase">${p.brand} • ${p.subCat}</div>
+            <h2 class="text-base font-black text-slate-900 leading-snug">${p.title}</h2>
+            <div class="flex items-center gap-2">
+              <span class="bg-emerald-600 text-white text-xs font-bold px-2 py-0.5 rounded">${p.rating} ★</span>
+              <span class="text-slate-500">${p.reviews.toLocaleString('en-IN')} Verified Ratings</span>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-baseline gap-2">
+              <span class="text-2xl font-black text-slate-900">${formatPrice(p.price)}</span>
+              <span class="text-xs text-slate-400 line-through">${formatPrice(p.mrp)}</span>
+              <span class="text-xs font-black text-emerald-600">${p.discount}% OFF</span>
+            </div>
+
+            <p class="text-slate-600 leading-relaxed"><strong>Specifications:</strong> ${p.specs}</p>
+            <div class="text-[11px] text-emerald-700 font-bold">
+              <i class="fa-solid fa-check-circle"></i> In Stock (${p.stock} units ready) • 18% GST Invoice Available
+            </div>
+
+            <div class="pt-2 flex gap-2">
+              <button onclick="addToCart('${p.id}'); closeProductDetailModal();" class="flex-1 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black py-2.5 rounded-xl">
+                <i class="fa-solid fa-cart-plus mr-1"></i> Add to Cart
+              </button>
+              <button onclick="closeProductDetailModal(); openPaymentModal(${p.price}, '${p.title.replace(/'/g, '')}');" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-black py-2.5 rounded-xl">
+                <i class="fa-solid fa-bolt mr-1"></i> ${isMovie ? 'Rent 48h Stream' : 'Buy / Download Now'}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('productDetailModal').classList.remove('hidden');
+    }
+
+    function closeProductDetailModal() {
+      document.getElementById('productDetailModal').classList.add('hidden');
+    }
+
+    function buyNowSingle(prodId) {
+      const p = ALL_PRODUCTS.find(x => x.id === prodId);
+      if (!p) return;
+      if (p.catId === 'CAD' || p.catId === 'Movies') {
+        openProductDetail(prodId);
+      } else {
+        openPaymentModal(p.price, `${p.title} (${p.sku})`);
+      }
+    }
+
+    /* ========================================================= */
+    /* 6. CART, WISHLIST & PAYMENT GATEWAY                       */
+    /* ========================================================= */
+    let cartItems = JSON.parse(localStorage.getItem('bmh_12k_cart')) || [];
+    let wishlistIds = JSON.parse(localStorage.getItem('bmh_12k_wish')) || [];
+    let orderList = JSON.parse(localStorage.getItem('bmh_12k_orders')) || [
+      { id: 'INV-2026-9901', title: 'KashiWeaves Pure Handloom Banarasi Silk Saree', amount: 1499, date: '25/10/2026', mode: 'UPI QR (MKR)' }
+    ];
+
+    function updateHeaderBadges() {
+      const totalQty = cartItems.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cartCountBadge').innerText = totalQty;
+      document.getElementById('wishlistBadge').innerText = wishlistIds.length;
+    }
+
+    function addToCart(prodId) {
+      const p = ALL_PRODUCTS.find(x => x.id === prodId);
+      if (!p) return;
+      const existing = cartItems.find(c => c.id === prodId);
+      if (existing) existing.qty += 1;
+      else cartItems.push({ id: p.id, sku: p.sku, title: p.title, price: p.price, image: p.image, qty: 1 });
+      localStorage.setItem('bmh_12k_cart', JSON.stringify(cartItems));
+      updateHeaderBadges();
+      showToast(`Added "${p.title.substring(0, 26)}..." to Cart`);
+    }
+
+    function toggleWishlistItem(prodId) {
+      const idx = wishlistIds.indexOf(prodId);
+      if (idx > -1) wishlistIds.splice(idx, 1);
+      else wishlistIds.push(prodId);
+      localStorage.setItem('bmh_12k_wish', JSON.stringify(wishlistIds));
+      updateHeaderBadges();
+      renderCurrentCatalogPage();
+      showToast('Wishlist updated');
+    }
+
+    function openWishlistModal() {
+      if (wishlistIds.length === 0) {
+        showToast('Your wishlist is empty. Tap ♥ on any product!');
+        return;
+      }
+      filteredCatalog = ALL_PRODUCTS.filter(p => wishlistIds.includes(p.id));
+      currentPage = 1;
+      document.getElementById('activeCategoryTitle').innerText = 'My Saved Wishlist Items';
+      document.getElementById('filteredCountBadge').innerText = `${filteredCatalog.length} Saved`;
+      renderCurrentCatalogPage();
+    }
+
+    function openCartModal() {
+      const box = document.getElementById('cartItemsContainer');
+      if (cartItems.length === 0) {
+        box.innerHTML = `<div class="text-center py-12 text-slate-400">Your cart is empty. Explore our 12,000+ products!</div>`;
+        document.getElementById('cartSubtotalText').innerText = '₹0';
+        document.getElementById('cartGstText').innerText = '₹0';
+        document.getElementById('cartTotalText').innerText = '₹0';
+      } else {
+        box.innerHTML = cartItems.map((c, idx) => `
+          <div class="py-3 flex items-center justify-between gap-2">
+            <img src="${c.image}" class="w-12 h-12 rounded-lg object-cover border" />
+            <div class="flex-1">
+              <div class="font-bold text-slate-900 line-clamp-1">${c.title}</div>
+              <div class="text-slate-500">${formatPrice(c.price)} × ${c.qty}</div>
+            </div>
+            <div class="flex items-center gap-1">
+              <button onclick="changeCartQty(${idx}, -1)" class="w-6 h-6 bg-slate-100 rounded font-bold">-</button>
+              <span class="px-1 font-bold">${c.qty}</span>
+              <button onclick="changeCartQty(${idx}, 1)" class="w-6 h-6 bg-slate-100 rounded font-bold">+</button>
+            </div>
+          </div>
+        `).join('');
+        const total = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+        const gst = Math.round(total * 0.18);
+        document.getElementById('cartSubtotalText').innerText = formatPrice(total - gst);
+        document.getElementById('cartGstText').innerText = formatPrice(gst);
+        document.getElementById('cartTotalText').innerText = formatPrice(total);
+      }
+      document.getElementById('cartModal').classList.remove('hidden');
+    }
+
+    function closeCartModal() {
+      document.getElementById('cartModal').classList.add('hidden');
+    }
+
+    function changeCartQty(idx, delta) {
+      cartItems[idx].qty += delta;
+      if (cartItems[idx].qty <= 0) cartItems.splice(idx, 1);
+      localStorage.setItem('bmh_12k_cart', JSON.stringify(cartItems));
+      updateHeaderBadges();
+      openCartModal();
+    }
+
+    function proceedCartToCheckout() {
+      if (cartItems.length === 0) return;
+      const total = cartItems.reduce((s, i) => s + i.price * i.qty, 0);
+      const title = cartItems.map(c => c.title).join(', ');
+      closeCartModal();
+      openPaymentModal(total, title);
+    }
+
+    let currentPaymentContext = { amount: 100, title: 'Order' };
+
+    function openPaymentModal(amount, title) {
+      currentPaymentContext = { amount, title };
+      document.getElementById('pgOrderDesc').innerText = title;
+      document.getElementById('pgAmountText').innerText = formatPrice(amount);
+
+      const upiUri = `upi://pay?pa=${APP_CONFIG.upiId}&pn=${encodeURIComponent(APP_CONFIG.payeeName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(title.substring(0, 25))}`;
+      document.getElementById('upiDeepLinkBtn').href = upiUri;
+
+      try {
+        new QRious({
+          element: document.getElementById('upiQrCanvas'),
+          value: upiUri,
+          size: 175,
+          level: 'H'
+        });
+      } catch (e) {}
+
+      switchPayTab('upi');
+      document.getElementById('paymentGatewayModal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentGatewayModal').classList.add('hidden');
+    }
+
+    function switchPayTab(tab) {
+      ['upi', 'card', 'bank', 'cod'].forEach(t => {
+        document.getElementById(`payPanel-${t}`).classList.add('hidden');
+        document.getElementById(`payTabBtn-${t}`).className = 'w-full text-left px-3 py-2.5 rounded-xl font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 flex items-center justify-between';
+      });
+      document.getElementById(`payPanel-${tab}`).classList.remove('hidden');
+      document.getElementById(`payTabBtn-${tab}`).className = 'w-full text-left px-3 py-2.5 rounded-xl font-bold bg-blue-600 text-white flex items-center justify-between shadow';
+    }
+
+    function copyMerchantUpi() {
+      const inp = document.createElement('input');
+      inp.value = APP_CONFIG.upiId;
+      document.body.appendChild(inp);
+      inp.select();
+      document.execCommand('copy');
+      document.body.removeChild(inp);
+      showToast(`UPI ID Copied: ${APP_CONFIG.upiId}`);
+    }
+
+    function confirmPaymentSuccess(modeLabel) {
+      const utr = document.getElementById('upiUtrInput').value.trim() || ('UTR' + Math.floor(10000000 + Math.random() * 89999999));
+      const invId = 'INV-2026-' + Math.floor(1000 + Math.random() * 9000);
+      orderList.unshift({
+        id: invId,
+        title: currentPaymentContext.title,
+        amount: currentPaymentContext.amount,
+        date: new Date().toLocaleDateString('en-GB'),
+        mode: `${modeLabel} (${utr})`
+      });
+      localStorage.setItem('bmh_12k_orders', JSON.stringify(orderList));
+      cartItems = [];
+      localStorage.setItem('bmh_12k_cart', JSON.stringify(cartItems));
+      updateHeaderBadges();
+      closePaymentModal();
+      switchMainTab('orders');
+      showToast(`Order Confirmed! GST Invoice ${invId} generated.`);
+    }
+
+    /* ========================================================= */
+    /* 7. ORDERS, UNLIMITED INDEXEDDB VAULT & ADMIN CMS          */
+    /* ========================================================= */
+    function switchMainTab(tab) {
+      ['store', 'vault', 'orders'].forEach(t => {
+        document.getElementById(`tabView-${t}`).classList.add('hidden');
+      });
+      document.getElementById(`tabView-${tab}`).classList.remove('hidden');
+      if (tab === 'orders') renderOrdersList();
+      if (tab === 'vault') renderVaultFiles();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderOrdersList() {
+      const box = document.getElementById('ordersListContainer');
+      box.innerHTML = orderList.map(o => `
+        <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <span class="font-mono font-bold text-blue-600">${o.id}</span> • <span class="text-slate-400">${o.date}</span>
+            <div class="font-bold text-slate-900 mt-0.5">${o.title}</div>
+            <div class="text-[11px] text-slate-500">Paid via ${o.mode} • GSTIN: ${APP_CONFIG.gstin}</div>
+          </div>
+          <div class="text-right">
+            <div class="text-sm font-black text-slate-900">${formatPrice(o.amount)}</div>
+            <span class="inline-block mt-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">✓ Verified & Dispatched</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    /* Unlimited IndexedDB Cloud Storage Vault */
+    let vaultDb = null;
+    function initVaultDb() {
+      const req = indexedDB.open('BharatMultiHubDB_v2', 1);
+      req.onupgradeneeded = e => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains('vault')) {
+          db.createObjectStore('vault', { keyPath: 'id' });
+        }
+      };
+      req.onsuccess = e => {
+        vaultDb = e.target.result;
+        renderVaultFiles();
+      };
+    }
+
+    function handleVaultUpload(e) {
+      e.preventDefault();
+      if (!vaultDb) return;
+      const title = document.getElementById('vaultTitleInp').value.trim();
+      const category = document.getElementById('vaultCatInp').value;
+      const inp = document.getElementById('vaultFileInp');
+      if (!inp.files.length) return;
+
+      Array.from(inp.files).forEach((file, i) => {
+        const reader = new FileReader();
+        reader.onload = evt => {
+          const tx = vaultDb.transaction(['vault'], 'readwrite');
+          tx.objectStore('vault').put({
+            id: 'vf_' + Date.now() + '_' + i,
+            title: title + ' - ' + file.name,
+            category,
+            sizeKB: Math.max(1, Math.round(file.size / 1024)),
+            dataUrl: evt.target.result
+          });
+          tx.oncomplete = () => {
+            renderVaultFiles();
+            showToast(`Saved "${file.name}" to Unlimited Vault`);
+          };
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.reset();
+    }
+
+    function renderVaultFiles() {
+      if (!vaultDb) return;
+      const tx = vaultDb.transaction(['vault'], 'readonly');
+      const req = tx.objectStore('vault').getAll();
+      req.onsuccess = () => {
+        const list = req.result || [];
+        document.getElementById('vaultCountLabel').innerText = `${list.length} Files Stored (∞ GB Available)`;
+        document.getElementById('topVaultStatus').innerText = `${list.length} Files (∞ GB)`;
+        const box = document.getElementById('vaultFilesContainer');
+        if (list.length === 0) {
+          box.innerHTML = `<div class="text-center py-8 text-slate-400">No files uploaded yet. Upload unlimited videos, CAD files, or PDFs!</div>`;
+          return;
+        }
+        box.innerHTML = list.reverse().map(f => `
+          <div class="p-2.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
+            <div>
+              <div class="font-bold text-slate-800">${f.title}</div>
+              <div class="text-[10px] text-slate-500">${f.category} • ${f.sizeKB} KB</div>
+            </div>
+            <a href="${f.dataUrl}" download="${f.title}" class="bg-blue-600 text-white px-2.5 py-1 rounded-lg font-bold text-[10px]">Download</a>
+          </div>
+        `).join('');
+      };
+    }
+
+    /* Master Admin CMS (Password: Mnh06ba9050*) */
+    let adminUnlocked = false;
+
+    function openAdminModal() {
+      document.getElementById('adminModal').classList.remove('hidden');
+      if (adminUnlocked) {
+        document.getElementById('adminAuthGate').classList.add('hidden');
+        document.getElementById('adminCmsBody').classList.remove('hidden');
+      } else {
+        document.getElementById('adminAuthGate').classList.remove('hidden');
+        document.getElementById('adminCmsBody').classList.add('hidden');
+        document.getElementById('adminPasswordInp').value = '';
+        document.getElementById('adminAuthError').classList.add('hidden');
+      }
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function openAddCustomProductModal() {
+      openAdminModal();
+    }
+
+    function verifyAdminPassword() {
+      const entered = document.getElementById('adminPasswordInp').value;
+      if (entered === APP_CONFIG.adminPass) {
+        adminUnlocked = true;
+        document.getElementById('adminAuthGate').classList.add('hidden');
+        document.getElementById('adminCmsBody').classList.remove('hidden');
+        showToast('Master Admin Unlocked!');
+      } else {
+        document.getElementById('adminAuthError').classList.remove('hidden');
+      }
+    }
+
+    function lockAdminSession() {
+      adminUnlocked = false;
+      closeAdminModal();
+      showToast('Admin Session Locked');
+    }
+
+    function saveAdminSettings() {
+      APP_CONFIG.companyName = document.getElementById('admCompanyInp').value.trim() || 'BharatMultiHub';
+      APP_CONFIG.payeeName = document.getElementById('admPayeeInp').value.trim() || 'MKR';
+      APP_CONFIG.upiId = document.getElementById('admUpiInp').value.trim() || '9060196522-2@ybl';
+      APP_CONFIG.whatsapp = document.getElementById('admWhatsappInp').value.trim() || '9060196522';
+      APP_CONFIG.gstin = document.getElementById('admGstinInp').value.trim().toUpperCase() || '10AABCB2026B1Z5';
+      APP_CONFIG.themeColor = document.getElementById('admColorInp').value || '#2874f0';
+
+      localStorage.setItem('bmh_12k_config', JSON.stringify(APP_CONFIG));
+      syncBrandingToDom();
+      showToast('Settings Saved & Applied Live!');
+    }
+
+    function handleCustomProductAdd(e) {
+      e.preventDefault();
+      const title = document.getElementById('newProdTitle').value.trim();
+      const catId = document.getElementById('newProdCat').value;
+      const price = parseInt(document.getElementById('newProdPrice').value) || 499;
+      const mrp = parseInt(document.getElementById('newProdMrp').value) || price * 2;
+      const img = document.getElementById('newProdImg').value.trim() || 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=500&q=80';
+
+      const catObj = CATEGORY_BLUEPRINTS.find(c => c.id === catId) || CATEGORY_BLUEPRINTS[0];
+      const discount = Math.max(5, Math.round(((mrp - price) / mrp) * 100));
+      const newProd = {
+        id: 'BMH-CUSTOM-' + Date.now(),
+        sku: 'BMH-TOP-' + Math.floor(1000 + Math.random() * 9000),
+        catId: catObj.id,
+        catName: catObj.name,
+        subCat: catObj.subCategories[0],
+        brand: APP_CONFIG.companyName,
+        title,
+        price,
+        mrp,
+        discount,
+        rating: 5.0,
+        reviews: 120,
+        stock: 50,
+        specs: 'Featured Custom Product • Verified Quality',
+        image: img,
+        isRental: false
+      };
+
+      customAddedProducts.unshift(newProd);
+      localStorage.setItem('bmh_12k_custom', JSON.stringify(customAddedProducts));
+      buildTwelveThousandCatalog();
+      renderCategoryDirectoryBar();
+      applyCatalogFilters();
+      e.target.reset();
+      closeAdminModal();
+      showToast('New Product Published to Top of Catalog!');
+    }
+
+    function syncBrandingToDom() {
+      document.getElementById('brandTitleText').innerText = APP_CONFIG.companyName;
+      document.querySelectorAll('.brand-name-sync').forEach(el => (el.innerText = APP_CONFIG.companyName));
+      document.querySelectorAll('.payee-name-sync').forEach(el => (el.innerText = APP_CONFIG.payeeName));
+      document.querySelectorAll('.upi-id-sync').forEach(el => (el.innerText = APP_CONFIG.upiId));
+      document.getElementById('heroPayeeText').innerText = APP_CONFIG.payeeName;
+      document.getElementById('heroUpiText').innerText = APP_CONFIG.upiId;
+      document.getElementById('footerGstinText').innerText = APP_CONFIG.gstin;
+      document.getElementById('footerWhatsappText').innerText = `+91 ${APP_CONFIG.whatsapp}`;
+      document.getElementById('appHeader').style.backgroundColor = APP_CONFIG.themeColor;
+    }
+
+    /* Currency, Dark Mode, Voice Search & Flash Timer */
+    function changeCurrency(curr) {
+      currentCurrency = curr;
+      renderCurrentCatalogPage();
+      showToast(`Currency switched to ${curr}`);
+    }
+
+    function changeLanguage(lang) {
+      const titles = {
+        en: 'Explore 12,000+ Sarees, Fashion, Kids Toys, Electronics, Industrial Tools, Movies & CAD Blueprints',
+        hi: '12,000+ साड़ियां, फैशन, खिलौने, इलेक्ट्रॉनिक्स, इंडस्ट्रियल टूल्स, मूवी रेंट और ऑटोकेड ड्रॉइंग्स एक्सप्लोर करें',
+        or: '12,000+ ଶାଢୀ, ଫ୍ୟାଶନ୍, ଖେଳନା, ইଲେକ୍ଟ୍ରୋନିକ୍ସ, ସିନେମା ଏବଂ CAD ଡ୍ରଇଂ ଦେଖନ୍ତୁ',
+        gu: '12,000+ સાડીઓ, ફેશન, રમકડાં, ઇલેક્ટ્રોનિક્સ, મૂવીઝ અને CAD ડ્રોઇંગ્સ જુઓ',
+        pa: '12,000+ ਸਾੜੀਆਂ, ਫੈਸ਼ਨ, ਖਿਡੌਣੇ, ਇਲੈਕਟ੍ਰਾਨਿਕਸ, ਫਿਲਮਾਂ ਅਤੇ CAD ਡਰਾਇੰਗ ਦੇਖੋ'
+      };
+      document.getElementById('heroBannerHeading').innerText = titles[lang] || titles.en;
+      showToast(`Language changed to ${lang.toUpperCase()}`);
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      showToast('Theme Mode Updated');
+    }
+
+    function startVoiceSearch() {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SR) {
+        const rec = new SR();
+        rec.lang = 'en-IN';
+        showToast('🎤 Listening... Speak any product or category');
+        rec.onresult = e => {
+          const text = e.results[0][0].transcript;
+          document.getElementById('desktopSearchInput').value = text;
+          document.getElementById('mobileSearchInput').value = text;
+          handleSearchInput(text);
+        };
+        rec.start();
+      } else {
+        const demoTerms = ['Banarasi Silk', 'RC Rock Crawler', '5G Smartphone', 'Press Brake V-Die', 'AutoCAD'];
+        const pick = demoTerms[Math.floor(Math.random() * demoTerms.length)];
+        document.getElementById('desktopSearchInput').value = pick;
+        document.getElementById('mobileSearchInput').value = pick;
+        handleSearchInput(pick);
+        showToast(`🎤 Voice Search: "${pick}"`);
+      }
+    }
+
+    let timerSecs = 4 * 3600 + 58 * 60 + 19;
+    setInterval(() => {
+      timerSecs = timerSecs > 0 ? timerSecs - 1 : 14400;
+      const h = String(Math.floor(timerSecs / 3600)).padStart(2, '0');
+      const m = String(Math.floor((timerSecs % 3600) / 60)).padStart(2, '0');
+      const s = String(timerSecs % 60).padStart(2, '0');
+      const el = document.getElementById('flashSaleTimer');
+      if (el) el.innerText = `${h}:${m}:${s}`;
+    }, 1000);
+
+    let toastTimeout = null;
+    function showToast(msg) {
+      const t = document.getElementById('appToast');
+      document.getElementById('appToastText').innerText = msg;
+      t.classList.remove('opacity-0', 'pointer-events-none');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => t.classList.add('opacity-0', 'pointer-events-none'), 2800);
+    }
+
+    /* Boot Application */
+    window.onload = function () {
+      syncBrandingToDom();
+      buildTwelveThousandCatalog();
+      renderCategoryDirectoryBar();
+      renderSubCategoryPills();
+      applyCatalogFilters();
+      updateHeaderBadges();
+      initVaultDb();
+    };
+  </script>
+</body>
+</html>
