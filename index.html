@@ -1930,5 +1930,22 @@
       initVaultDb();
     };
   </script>
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAEqxxINjPgspvW3yvcFelrarmfn-pb_ro",
+  authDomain: "bharatmultihub.firebaseapp.com",
+  projectId: "bharatmultihub",
+  storageBucket: "bharatmultihub.firebasestorage.app",
+  messagingSenderId: "707181774818",
+  appId: "1:707181774818:web:b58732b82c75fdf6191bbb",
+  measurementId: "G-H726MCJ6EZ"
+};
+
+const app = initializeApp(firebaseConfig);
+
+console.log("Firebase Connected Successfully");
+</script>
 </body>
 </html>
